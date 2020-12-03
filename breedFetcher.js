@@ -10,6 +10,10 @@ request(url, (error, response, body) => {
     console.log('An error occured - code:', response && response.statusCode); // Print the response status code if a response was received
   } else {
     const data = JSON.parse(body);
-    console.log(data[0].description);
+    if (Object.keys(data).length !== 0) {
+      console.log(data[0].description);
+    } else {
+      console.log('Error: Breed name is not found.');
+    }
   }
 });
